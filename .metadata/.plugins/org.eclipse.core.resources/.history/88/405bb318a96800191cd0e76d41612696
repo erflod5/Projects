@@ -1,0 +1,7 @@
+
+public class Item {
+
+	private int xC, yC, width, height;
+	
+	
+}

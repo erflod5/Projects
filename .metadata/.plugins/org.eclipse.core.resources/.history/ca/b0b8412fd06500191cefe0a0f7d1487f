@@ -1,0 +1,17 @@
+package example;
+
+public class Clase1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public void iniciar() {
+		
+		System.out.println(x);
+	}
+	
+	int x = 3;
+
+}

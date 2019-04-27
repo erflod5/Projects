@@ -1,0 +1,29 @@
+import javax.swing.*;
+
+public class Main {
+
+	public Main() {
+		
+		JFrame ventana = new JFrame();
+		Snake snake = new Snake();
+		
+		ventana.add(snake);
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setTitle("Snake");
+		ventana.pack();
+		ventana.setVisible(true);
+		ventana.setLocationRelativeTo(null);
+		ventana.setLayout(null);
+		ventana.setSize(500, 500);
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Main();
+	}
+
+	
+	
+}

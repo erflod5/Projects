@@ -1,0 +1,117 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+public class Panel extends JPanel implements Runnable, KeyListener{
+
+	public static final int width = 440,height = 480;
+	
+	private Thread thread;
+	
+	private boolean running;
+	
+	private Body body;
+	private ArrayList<Body> snake;
+	
+	private int xC = 12, yC = 11, size = 5;
+	
+	private int ticks = 0;
+	private boolean left = false, right = true, up = false, down = false;
+	
+	public Panel() {
+		setPreferredSize(new Dimension(width,height));
+		
+		snake = new ArrayList<>();
+		
+		start();
+	}
+	
+	public void start() {
+		running = true;
+		thread = new Thread(this);
+		thread.start();
+	}
+	
+	public void stop() {
+		running = false;
+		try {
+			thread.join();
+		}
+		catch(InterruptedException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public void tick() {
+		if(snake.size()==0) {
+			body = new Body(xC,yC,10);
+			snake.add(body);
+		}
+		size++;
+		if(size > 211200) {
+			if(right) xC++;
+			if(left) xC--;
+			if(up) yC++;
+			if(down) yC--;
+			
+			size = 0;
+			
+			body = new Body(xC,yC,10);
+			snake.add(body);
+			
+			if(snake.size() > size) {
+				snake.remove(0);
+			}
+		}
+	}
+	
+	public void paint(Graphics g) {
+		g.clearRect(0, 0, width, height);
+
+		for(int i = 0; i < width/40 ; i++ ) {
+			g.drawLine(i*40, 0, i*40, height);
+		}
+		for(int i = 0; i < height/40; i++) {
+			g.drawLine(0, i*40, height, i*40);
+		}
+		for(int i = 0; i < snake.size(); i++) {
+			snake.get(i).draw(g);
+		}
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(running) {
+			tick();
+			repaint();
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		int key = arg0.getKeyCode();
+		if(key == KeyEvent.VK_RIGHT && !left) {
+			right = true;
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+}

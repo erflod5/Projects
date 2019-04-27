@@ -1,0 +1,8 @@
+
+public class Body {
+
+	private int xC, yC, width, height;
+	public Body() {
+		
+	}
+}

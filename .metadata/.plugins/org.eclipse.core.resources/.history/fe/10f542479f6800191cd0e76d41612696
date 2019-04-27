@@ -1,0 +1,24 @@
+import java.awt.Graphics;
+
+public class Body {
+
+	private int xC, yC, width, height;
+
+	public Body(int xC, int yC, int width, int height) {
+		super();
+		this.xC = xC;
+		this.yC = yC;
+		this.width = width;
+		this.height = height;
+	}
+	
+	
+	public void tick() {
+		
+		
+	}
+	
+	public void draw(Graphics g) {
+		
+	}
+}

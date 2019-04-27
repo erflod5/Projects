@@ -1,0 +1,57 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Item {
+
+	private int xC, yC, width, height;
+	
+	public Item(int xC, int yC, int l) {
+		this.xC = xC;
+		this.yC = yC;
+		width = height = l;
+	}
+	
+	public void tick() {
+		
+		
+	}
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.RED);
+		g.fillRect(xC*width, yC*height, width, height);
+	}
+
+	public int getxC() {
+		return xC;
+	}
+
+	public void setxC(int xC) {
+		this.xC = xC;
+	}
+
+	public int getyC() {
+		return yC;
+	}
+
+	public void setyC(int yC) {
+		this.yC = yC;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	
+	
+}

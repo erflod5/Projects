@@ -1,0 +1,13 @@
+
+public class Item {
+
+	private int xC, yC, width, height;
+	
+	public Item(int xC, int yC, int l) {
+		this.xC = xC;
+		this.yC = yC;
+		width = height = l;
+	}
+	
+	
+}
